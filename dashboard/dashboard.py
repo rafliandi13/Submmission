@@ -9,12 +9,12 @@ sns.set(style='dark')
 
 # Dataset
 datetime_cols = ["order_approved_at", "order_delivered_carrier_date", "order_delivered_customer_date", "order_estimated_delivery_date", "order_purchase_timestamp", "shipping_limit_date"]
-all_df = pd.read_csv("../dashboard/all_data.csv")
+all_df = pd.read_csv("https://raw.githubusercontent.com/rafliandi13/Submmission/refs/heads/master/dashboard/all_data.csv")
 all_df.sort_values(by="order_approved_at", inplace=True)
 all_df.reset_index(inplace=True)
 
 # Geolocation Dataset
-geolocation = pd.read_csv('../dashboard/geolocation.csv')
+geolocation = pd.read_csv('https://raw.githubusercontent.com/rafliandi13/Submmission/refs/heads/master/dashboard/geolocation.csv')
 golocation_df = geolocation.drop_duplicates(subset='customer_unique_id')
 
 data_order_payment = all_df.groupby("payment_type")["product_id"].count().reset_index()
